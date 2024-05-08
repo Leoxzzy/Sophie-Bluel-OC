@@ -1,3 +1,7 @@
+/*--------------------------------------------------------------------------------
+RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET
+--------------------------------------------------------------------------------*/
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -23,6 +27,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -46,7 +51,66 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/** end reset css**/
+
+
+
+/*--------------------------------------------------------------------------------
+COMPONENT - COMPONENT - COMPONENT - COMPONENT - COMPONENT - COMPONENT - COMPONENT
+--------------------------------------------------------------------------------*/
+
+/*------------------------------ GENERAL ------------------------------*/
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+}
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+li:hover {
+	color: #B1663C;
+}
+
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+
+
+/*--------------------------------------------------------------------------------
+PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE
+--------------------------------------------------------------------------------*/
+
+/*------------------------------ GENERAL ------------------------------*/
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -62,42 +126,14 @@ section {
 	margin: 50px 0
 }
 
-h1{
-	display: flex;
-	flex-direction: column;
-	font-family: 'Syne';
-	font-size: 22px;
-	font-weight: 800;
-	color: #B1663C
+/*------------------------------ PORTFOLIO SECTION ------------------------------*/
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
 }
 
-h1 > span {
-	font-family: 'Work Sans';
-	font-size:10px;
-	letter-spacing: 0.1em;
-;
-}
 
-h2{
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 30px;
-	color: #1D6154
-}
-nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
-
-}
-nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
-}
-
-li:hover {
-	color: #B1663C;
-}
+/*------------------------------ INTRODUCTION ------------------------------*/
 #introduction {
 	display: flex;
 	align-items: center;
@@ -121,10 +157,9 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
-}
+
+
+/*------------------------------ GALLERY ------------------------------*/
 .gallery {
 	width: 100%;
 	display: grid;
@@ -132,14 +167,16 @@ li:hover {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
-
 .gallery img {
 	width: 100%;
 
 }
+
+
+/*------------------------------ CONTACT SECTION ------------------------------*/
 #contact {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > * {
 	text-align: center;
@@ -169,17 +206,8 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
-}
 
+/*------------------------------ FOOTER ------------------------------*/
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
