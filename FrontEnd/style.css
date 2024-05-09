@@ -1,3 +1,9 @@
+:root {
+	--main-color: rgba(29, 97, 84, 1);
+}
+
+
+
 /*--------------------------------------------------------------------------------
 RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET
 --------------------------------------------------------------------------------*/
@@ -6,6 +12,11 @@ RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET - RESET
    v2.0 | 20110126
    License: none (public domain)
 */
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -104,6 +115,90 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
+/*------------------------------ BUTTONS ------------------------------*/
+button {
+	border: none;
+	background-color: var(--main-color);
+
+	color: white;
+	font-family: syne;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 16.8px;
+
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 60px;
+
+}
+button:hover {
+	cursor: pointer;
+	color: white;
+	background-color: rgba(14, 47, 40, 1);
+	transition: 150ms ease-in;
+}
+
+/*--------------- PORTFOLIO FILTERS ---------------*/
+.portfolio-filters button {
+	color: var(--main-color);
+	background-color: white;
+	border: solid 1px var(--main-color);
+
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.portfolio-filters button:hover {
+	color: white;
+	background-color: var(--main-color);
+	transition: 150ms ease-in;
+}
+.portfolio-filters button:focus {
+	color: white;
+	background-color: var(--main-color);
+}
+
+/*------------------------------ EDITION MODE NOTIFICATION ------------------------------*/
+#editionMode-notification {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+
+	width: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: black;
+
+	color: white;
+	font-family: Work Sans;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 18.77px;
+}
+
+/*------------------------------ ENTRY WITH NAME ------------------------------*/
+.entryWithName p {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16.42px;
+	margin-bottom: 10px;
+}
+.entryWithName input, .entryWithName select {
+	width: 420px;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
 
 
 /*--------------------------------------------------------------------------------
@@ -124,12 +219,6 @@ header {
 }
 section {
 	margin: 50px 0
-}
-
-/*------------------------------ PORTFOLIO SECTION ------------------------------*/
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
 }
 
 
@@ -158,8 +247,15 @@ section {
 	margin-bottom: 0.5em;
 }
 
+/*------------------------------ PORTFOLIO SECTION ------------------------------*/
+#portfolio {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 50px;
+}
 
-/*------------------------------ GALLERY ------------------------------*/
+/*--------------- GALLERY ---------------*/
 .gallery {
 	width: 100%;
 	display: grid;
@@ -169,7 +265,6 @@ section {
 }
 .gallery img {
 	width: 100%;
-
 }
 
 
@@ -214,3 +309,246 @@ footer nav ul {
 	margin: 2em
 }
 
+
+
+
+/*--------------------------------------------------------------------------------
+MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL
+--------------------------------------------------------------------------------*/
+
+/*------------------------------
+-- COMPONENTS
+------------------------------*/
+
+/*--------------- GENERAL ---------------*/
+.modalWindow-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#modalWindow {
+	background-color: white;
+	width: 630px;
+	height: 688px;
+	border: none;
+	border-radius: 10px;
+}
+
+/*--------------- MODAL WINDOW HEADER ---------------*/
+.modalWindow-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-top: 15px;
+	margin-bottom: 11.5px;
+}
+.modalWindow-header button {
+	color: black;
+	background: none;
+	padding: 0;
+	font-size: 21px;
+}
+
+/*--------------- MODAL WINDOW TITLE ---------------*/
+#modalWindow h2 {
+	color: black;
+	font-family: Work Sans;
+	font-size: 26px;
+	font-weight: 400;
+	line-height: 30.5px;
+}
+
+/*--------------- USER INTERACTIONS ---------------*/
+.modalWindow-userInteractions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 38px;
+}
+.modalWindow-userInteractions hr {
+	width: 420px;
+	border: 1px solid rgba(179, 179, 179, 1);
+}
+.modalWindow-userInteractions button {
+	padding-left: 49px;
+	padding-right: 49px;
+}
+
+/*--------------- GALLERY MANAGEMENT PAGE ---------------*/
+.galleryManagement-picture {
+	width: 78.12px;
+	height: 104.08px;
+}
+.galleryManagement-picture img {
+	width: 100%;
+	height: 100%;
+}
+.galleryManagement-picture button {
+	position: absolute;
+	margin-top: 6px;
+	margin-left: 57px;
+
+	background-color: black;
+	color: white;
+	padding: 1px 4px 1px 4px;
+	border-radius: 2px;
+	font-size: 9px;
+}
+
+/*--------------- ADD PICTURE INPUT ---------------*/
+.modalWindow-addPicture h2 {
+	margin-bottom: 36px;
+}
+
+.addPicture-imageInput {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+
+	background-color: rgba(232, 241, 246, 1);
+	width: 420px;
+	height: 169px;
+	border-radius: 3px;
+
+	margin-bottom: 30px;
+}
+.addPicture-imageInput i {
+	font-size: 68.14px;
+	color: rgba(185, 197, 204, 1);
+}
+.addPicture-imageInput button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	background-color: rgba(203, 214, 220, 1);
+	width: 173px;
+	height: 36px;
+}
+.addPicture-imageInput button p {
+	position: absolute;
+	
+	color: rgba(48, 102, 133, 1);
+	font-family: Work Sans;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 16.42px;
+}
+.addPicture-imageInput button input {
+	z-index: 1001;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.addPicture-imageInput p {
+	font-size: 10px;
+	font-weight: 400;
+	line-height: 11.73px;
+}
+
+.modalWindow-addPicture .modalWindow-userInteractions button {
+	background-color: rgba(167, 167, 167, 1);
+	padding-left: 89px;
+	padding-right: 89px;
+}
+
+
+/*------------------------------
+-- PAGES
+------------------------------*/
+
+/*--------------- GENERAL ---------------*/
+.modalWindow-main {
+	padding-left: 105px;
+	padding-right: 105px;
+}
+
+/*--------------- GALLERY MANAGEMENT PAGE ---------------*/
+.modalWindow-galleryManagement {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.modalWindow-galleryManagement h2 {
+	margin-bottom: 40px;
+}
+.galleryManagement-pictures {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 6.374px;
+
+	height: 380px;
+
+	margin-bottom: 67.3px;
+}
+
+/*--------------- ADD PICTURE PAGE ---------------*/
+.modalWindow-addPicture {
+	display: flex;
+	flex-direction: column;
+	align-items:  center;
+}
+.addPicture-detailsEntry {
+	display: flex;
+	flex-direction: column;
+	gap: 21px;
+	margin-bottom: 47px;
+}
+
+
+
+
+/*--------------------------------------------------------------------------------
+LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN
+--------------------------------------------------------------------------------*/
+
+.login-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 37px;
+	margin-top: 150px;
+}
+.login-inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+.login-userInteractions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 28px;
+}
+.login-userInteractions button {
+	padding: 10px 39px 10px 39px;
+}
+.login-userInteractions a {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16.42px;
+	color: rgba(61, 61, 61, 1);
+}
+
+#loginFooter {
+	position: fixed;
+	bottom: 0;
+	right: 100px;
+}
