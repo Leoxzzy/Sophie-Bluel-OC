@@ -17,16 +17,17 @@
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./visibility.css">
 
-	<script src="script.js"></script>
+	<script src="js/home.js"></script>
+	<script src="js/modalWindow.js"></script>
 </head>
 <body>
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
 			<ul>
-    			<a href="index.html"><li>projets</li></a>
-    			</a><li>contact</li>
-    			<a href="login.html"><li>login</li></a>
+    			<li><a href="index.html">projets</a></li>
+    			<li><a href="#contact">contact</a></li>
+    			<li id="loginBtn"><a href="login.html">login</a></li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
@@ -120,7 +121,7 @@
 						<i class="fa-regular fa-image"></i>
 						<button>
 							<p>+ Ajouter photo</p>
-							<input type="file" name="" id="">
+							<input type="file" name="addPicture-input" id="addPicture-input">
 						</button>
 						<p>jpg, png : 4mo max</p>
 					</div>
@@ -128,13 +129,13 @@
 					<div class="addPicture-detailsEntry">
 						<div class="entryWithName">
 							<p>Titre</p>
-							<input type="text" name="" id="">
+							<input type="text" name="addTitlePicture-input" id="addTitlePicture-input">
 						</div>
 
 						<div class="entryWithName">
 							<p>Titre</p>
-							<select name="" id="">
-								<option value="optionOne"></option>
+							<select name="categorieSelect" id="categorieSelect">
+								<option value="optionOne"> </option>
 								<option value="optionOne">Option 1</option>
 								<option value="optionTwo">Option 2</option>
 								<option value="optionThree">Option 3</option>
@@ -167,13 +168,13 @@
 		</section>
 
 		<section id="portfolio">
-			<h2>Mes Projets</h2>
+			<h2>Mes Projets <span id="editBtn-portfolio"><i class="fa-solid fa-pen-to-square"></i> Modifier</span></h2>
 
 			<div class="portfolio-filters">
-				<button>Tous</button>
-				<button>Objets</button>
-				<button>Appartement</button>
-				<button>Hôtels & restaurants</button>
+				<button id="category1">Tous</button>
+				<button id="category2">Objets</button>
+				<button id="category3">Appartement</button>
+				<button id="category4">Hôtels & restaurants</button>
 			</div>
 
 			<div class="gallery">

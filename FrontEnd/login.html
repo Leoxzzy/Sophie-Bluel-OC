@@ -17,35 +17,35 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./visibility.css">
 
-    <script src="script.js"></script>
+    <script src="js/login.js"></script>
 </head>
 <body>
-    <header>
-    	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-    	<nav>
-    		<ul>
-    			<a href="index.html"><li>projets</li></a>
-    			</a><li>contact</li>
-    			<a href="login.html"><li>login</li></a>
-    			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-    		</ul>
-    	</nav>
-    </header>
+	<header>
+		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+		<nav>
+			<ul>
+    			<li><a href="index.html">projets</a></li>
+    			<li>contact</li>
+    			<li id="loginBtn"><a href="login.html">login</a></li>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</header>
 
     <main>
         <div class="login-container">
             <h2>Log In</h2>
 
-            <form action="">
+            <form>
                 <div class="login-inputs">
                     <div class="entryWithName">
                         <h3>E-mail</h3>
-                        <input type="text">
+                        <input id="mailInput" type="text">
                     </div>
                 
                     <div class="entryWithName">
                         <h3>Mot de passe</h3>
-                        <input type="text">
+                        <input id="passwordInput" type="text">
                     </div>
                 </div>
             </form>

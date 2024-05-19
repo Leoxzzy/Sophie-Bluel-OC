@@ -9,3 +9,7 @@
 .modalWindow-galleryManagement {
     display: none;
 }
+
+.modalWindow-addPicture {
+    display: none;
+}
