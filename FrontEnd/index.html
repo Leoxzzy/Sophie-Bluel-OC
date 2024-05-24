@@ -17,8 +17,8 @@
 	<link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="./visibility.css">
 
-	<script src="js/home.js"></script>
-	<script src="js/modalWindow.js"></script>
+	<script type="module" src="js/home.js"></script>
+	<script type="module" src="js/modalWindow.js"></script>
 </head>
 <body>
 	<header>
@@ -43,7 +43,7 @@
 		<dialog id="modalWindow">
 			<div class="modalWindow-header">
 				<button id="modalWindow-returnBtn"><i class="fa-solid fa-arrow-left"></i></button>
-				<button id="modalWindow-closeBtn"><i class="fa-solid fa-xmark"></i></button>
+				<button id="modalWindow-exitBtn"><i class="fa-solid fa-xmark"></i></button>
 			</div>
 
 			<div class="modalWindow-main">
@@ -110,43 +110,46 @@
 
 					<div class="modalWindow-userInteractions">
 						<hr>
-						<button>Ajouter une photo</button>
+						<button id='modalwindow-addPictureBtn'>Ajouter une photo</button>
 					</div>
 				</div>
 
 				<div class="modalWindow-addPicture">
 					<h2>Ajout photo</h2>
 
+
 					<div class="addPicture-imageInput">
-						<i class="fa-regular fa-image"></i>
-						<button>
-							<p>+ Ajouter photo</p>
-							<input type="file" name="addPicture-input" id="addPicture-input">
-						</button>
-						<p>jpg, png : 4mo max</p>
+						<img id="addPicture-preview" alt="Préaffichage de l'image sélectionnée">
+						
+						<div class="imageInput"> <!-- addPicture-imageInput -->
+							<i class="fa-regular fa-image"></i>
+							<label for="addPicture-fileInput">+ Ajouter photo</label>
+							<input type="file" id="addPicture-fileInput" accept=".jpg, .jpeg, .png">
+							<p>jpg, png : 4mo max</p>
+						</div>
 					</div>
 
 					<div class="addPicture-detailsEntry">
 						<div class="entryWithName">
 							<p>Titre</p>
-							<input type="text" name="addTitlePicture-input" id="addTitlePicture-input">
+							<input type="text" name="addTitlePicture-input" id="addPicture-Titleinput">
 						</div>
 
 						<div class="entryWithName">
-							<p>Titre</p>
-							<select name="categorieSelect" id="categorieSelect">
-								<option value="optionOne"> </option>
-								<option value="optionOne">Option 1</option>
-								<option value="optionTwo">Option 2</option>
-								<option value="optionThree">Option 3</option>
-								<option value="optionFour">Option 4</option>
+							<p>Catégorie</p>
+							<select name="categorieSelect" id="addPicture-categorieSelect">
+								<option value="">Aucune</option>
+								<option value="1">Objets</option>
+								<option value="2">Appartements</option>
+								<option value="3">Hotels & restaurants</option>
 							</select>
 						</div>
 					</div>
 
+
 					<div class="modalWindow-userInteractions">
 						<hr>
-						<button>Valider</button>
+						<button id='modalwindow-validPictureBtn'>Valider</button>
 					</div>
 				</div>
 			</div>

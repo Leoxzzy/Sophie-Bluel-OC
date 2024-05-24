@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
 })
 
 function loginUser(userData) {
+    console.log(userData)
     let params = {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
@@ -21,9 +22,8 @@ function loginUser(userData) {
             throw new Error("Error retrieving projects: " + response.statusText);
         })
         .then(function (data) {
-            window.location.href = "index.html"
             localStorage.setItem('token', data.token)
-            console.log(data)
+            window.location.href = "index.html"
         })
         .catch(function (error) {
             document.querySelector('#mailInput').value = ""

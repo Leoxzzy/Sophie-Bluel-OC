@@ -2,14 +2,8 @@
     display: none;
 }
 
-.modalWindow-overlay {
-    display: none;
-}
+/* .modalWindow-overlay {
+    display: block;
+} */
 
-.modalWindow-galleryManagement {
-    display: none;
-}
 
-.modalWindow-addPicture {
-    display: none;
-}

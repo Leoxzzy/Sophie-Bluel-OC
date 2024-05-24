@@ -1,8 +1,9 @@
-let PageMetadata = {}
+export let PageMetadata = {}
 
 window.addEventListener("load", () => {
     document.querySelector('#editBtn-portfolio').style.display = 'none'
     loadPageMetadata()
+    DoesUserAdmin()
 });
 
 
@@ -21,6 +22,11 @@ async function loadPageMetadata() {
         })
         .then((response) => {
             PageMetadata.categories = response
+
+            // Dispatch a custom event indicating data is ready
+            const event = new Event('PageMetadataLoaded');
+            window.dispatchEvent(event);
+
             ProjectContainerInitialization()
             ProjectFiltersInitialization()
         })
@@ -49,6 +55,23 @@ function ProjectContainerInitialization() {
     });
 }
 
+function DoesUserAdmin() {
+    if (localStorage.getItem('token') !== null) {
+        document.querySelector('#editionMode-notification').style.display = 'flex'
+        document.querySelector('.portfolio-filters').style.display = 'none'
+
+        let coucou = new Event('coucou');
+
+        let editBtn = document.querySelector('#editBtn-portfolio')
+        editBtn.style.display = 'flex'
+        editBtn.addEventListener('click', () => { window.dispatchEvent(coucou); })
+        
+
+        let LogoutBtn = document.querySelector('#loginBtn')
+        LogoutBtn.textContent = 'Logout'
+        LogoutBtn.addEventListener('click', () => { localStorage.removeItem('token'); location.reload() })
+    }
+}
 
 function ProjectFiltersInitialization() {
     /* Réinitialisation de la div ayant la classe ".portfolio-filters" */
@@ -70,7 +93,6 @@ function ProjectFiltersInitialization() {
         button.addEventListener('click', () => { LoadProjectsFromCategory(element.id); })
     });  
 }
-
 
 function LoadProjectsFromCategory(categoryID) {
     /* Réinitialisation de la div ayant la classe ".gallery" */
