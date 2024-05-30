@@ -144,6 +144,10 @@ button:hover {
 }
 
 /*--------------- PORTFOLIO FILTERS ---------------*/
+.portfolio-filters {
+	display: flex;
+	gap: 10px;
+}
 .portfolio-filters button {
 	color: var(--main-color);
 	background-color: white;
@@ -201,6 +205,45 @@ button:hover {
 }
 
 
+/*------------------------------ NOTIFICATION ------------------------------*/
+.notification {
+	position: fixed;
+	z-index: 1001;
+
+	top: -90px;
+	right: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 15px;
+	
+	background-color: white;
+	width: 400px;
+	padding: 20px;
+	box-shadow: 0px 0px 14px 5px rgba(0, 0, 0, 0.144);
+	border-radius: 30px;
+
+	font-size: 15px;
+	opacity: 0;
+
+	transition: 400ms ease-out;
+}
+
+.notification.show {
+	top: 70px;
+	opacity: 1;
+	transition: 700ms ease-in-out;
+}
+
+
+.notification i {
+	font-size: 20px;
+}
+
+
 /*--------------------------------------------------------------------------------
 PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE - PAGE
 --------------------------------------------------------------------------------*/
@@ -254,15 +297,26 @@ section {
 	align-items: center;
 	gap: 50px;
 }
-
+#portfolio h2 {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
 #editBtn-portfolio {
+	display: flex;
+	flex-direction: row;
+	gap: 6px;
+
 	color: black;
 	font-family: Work Sans;
 	font-weight: 400;
 	font-size: 14px;
 	margin-left: 31px;
 }
-
+#editBtn-portfolio:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
 /*--------------- GALLERY ---------------*/
 .gallery {
 	width: 100%;

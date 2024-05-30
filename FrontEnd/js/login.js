@@ -1,3 +1,4 @@
+
 window.addEventListener('load', () => {
     document.querySelector('#loginButton').addEventListener('click', () => {
         let userData = {}
@@ -8,7 +9,6 @@ window.addEventListener('load', () => {
 })
 
 function loginUser(userData) {
-    console.log(userData)
     let params = {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
@@ -26,14 +26,32 @@ function loginUser(userData) {
             window.location.href = "index.html"
         })
         .catch(function (error) {
-            document.querySelector('#mailInput').value = ""
-            document.querySelector('#passwordInput').value = ""
-            document.querySelector('#mailInput').style.outline = "1px solid red"
-            document.querySelector('#passwordInput').style.outline = "1px solid red"
-
-
-            console.error("ERROR:", error);
+            notification('Identifiants de connexion incorrects!', 'error')
         });
 
 }
 
+
+function notification(text, type) {
+    if (text === undefined && typeof text !== 'string' || type === undefined && typeof type !== 'string') { console.error('Mauvaise utilisation de la fonction "notification"!') }
+
+    const notification = document.querySelector('.notification')
+    notification.innerHTML = ""
+
+    let symbolClass = null
+    let symbolColor = null
+    if (type == 'success') { symbolClass = "fa-regular fa-circle-check"; symbolColor = 'green'; } else if (type == 'error') { symbolClass = "fa-solid fa-ban"; symbolColor = 'red'; }
+
+    let notificationSymbol = document.createElement('i')
+    notificationSymbol.className = symbolClass
+    notificationSymbol.style.color = symbolColor
+
+    let notificationContent = document.createElement('p')
+    notificationContent.textContent = text
+
+    notification.appendChild(notificationSymbol)
+    notification.appendChild(notificationContent)
+
+    notification.classList.add('show');
+    setTimeout(() => { notification.classList.remove('show'); }, 3000)
+}
