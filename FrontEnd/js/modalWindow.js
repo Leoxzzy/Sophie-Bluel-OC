@@ -1,10 +1,10 @@
 
-import { PageMetadata, loadPageMetadata, notification } from './home.js';
+import { PageMetadata, loadPageData, notification } from './index.js';
 let ModalWindow = {}
 let AddImageMetadata = {}
 let canValidPicture = false
 
-window.addEventListener('PageMetadataLoaded', () => {
+window.addEventListener('pageDataLoaded', () => {
     /* Déclarations du corp de la fenêtre modale */
     ModalWindow.overlay = document.querySelector('.modalWindow-overlay')
     ModalWindow.dialogWindow = document.querySelector("#modalWindow");
@@ -183,7 +183,7 @@ function addPictureToProjets(data) {
     fetch('http://localhost:5678/api/works', params)
         .then((response) => {
             console.log(response)
-            loadPageMetadata(false)
+            loadPageData(false)
             setTimeout(() => {
                 galleryManagementInitialization()
                 closeModalWindow()
@@ -205,7 +205,7 @@ function deletePictureFromProjets(pictureID) {
     fetch(`http://localhost:5678/api/works/${pictureID}`, params)
         .then((response) => {
             console.log(response)
-            loadPageMetadata(false)
+            loadPageData(false)
             setTimeout(() => {
                 galleryManagementInitialization()
                 notification('Photo bien supprimée des projets!', 'success')
