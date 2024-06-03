@@ -2,14 +2,24 @@ export let PageMetadata = {}
 
 
 /* Fonction permettant de demander et de récupérer des éléments depuis l'API. */
-export async function loadPageData(triggerEvent) {    
-    const works = await fetch('http://localhost:5678/api/works')
-    const worksData = await works.json()
-    PageMetadata.works = worksData
+export async function loadPageData(triggerEvent) {
+    try {        
+        const works = await fetch('http://localhost:5678/api/works')
+        const worksData = await works.json()
+        PageMetadata.works = worksData
 
-    const categories = await fetch('http://localhost:5678/api/categories')
-    const categoriesData = await categories.json()
-    PageMetadata.categories = categoriesData
+    } catch(error) {
+        console.error('Erreur lors de la récupération des travaux :', error);
+    }
+
+    try {
+        const categories = await fetch('http://localhost:5678/api/categories')
+        const categoriesData = await categories.json()
+        PageMetadata.categories = categoriesData
+
+    } catch(error) {
+        console.error('Erreur lors de la récupération des catégories :', error);
+    }
 
     /* Appel de l'event "pageDataLoaded" pour initialiser la fenêtre modale avec tous les éléments de la page. */
     if (triggerEvent) {
