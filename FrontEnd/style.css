@@ -264,10 +264,6 @@ section {
 	margin: 50px 0
 }
 
-#editionMode-notification {
-    display: none;
-}
-
 
 /*------------------------------ INTRODUCTION ------------------------------*/
 #introduction {
@@ -508,15 +504,16 @@ MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - MODAL - 
 	border-radius: 50px;
 	background-color: rgba(203, 214, 220, 1);
 
-	font: Work Sans;
-	font-size: 14;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 14px;
 	font-weight: 500;
 	line-height: 16.42px;
 	color: rgba(48, 102, 133, 1);
 
 	text-align: center;
-	padding: 10px 33px 10px 33px;
+	padding: 10px 33px;
 }
+
 .imageInput label:hover {
 	cursor: pointer;
 	background-color: rgb(165, 182, 192);
