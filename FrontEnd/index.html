@@ -134,28 +134,29 @@
 						</div>
 					</div>
 
-					<div class="addPicture-detailsEntry">
-						<div class="entryWithName">
-							<p>Titre</p>
-							<input type="text" name="addTitlePicture-input" id="addPicture-Titleinput">
+					<form id="addPicture-form" method="post">
+						<div class="addPicture-detailsEntry">
+							<div class="entryWithName">
+								<label for="addPicture-Titleinput">Titre</label>
+								<input type="text" name="addTitlePicture-input" id="addPicture-Titleinput" required>
+							</div>
+					
+							<div class="entryWithName">
+								<label for="addPicture-categorieSelect">Catégorie</label>
+								<select name="categorieSelect" id="addPicture-categorieSelect" required>
+									<option value="">Aucune</option>
+									<option value="1">Objets</option>
+									<option value="2">Appartements</option>
+									<option value="3">Hotels & restaurants</option>
+								</select>
+							</div>
 						</div>
-
-						<div class="entryWithName">
-							<p>Catégorie</p>
-							<select name="categorieSelect" id="addPicture-categorieSelect">
-								<option value="">Aucune</option>
-								<option value="1">Objets</option>
-								<option value="2">Appartements</option>
-								<option value="3">Hotels & restaurants</option>
-							</select>
+					
+						<div class="modalWindow-userInteractions">
+							<hr>
+							<button type="submit" id='modalwindow-validPictureBtn'>Valider</button>
 						</div>
-					</div>
-
-
-					<div class="modalWindow-userInteractions">
-						<hr>
-						<button id='modalwindow-validPictureBtn'>Valider</button>
-					</div>
+					</form>
 				</div>
 			</div>
 		</dialog>

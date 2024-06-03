@@ -1,4 +1,4 @@
-export let PageMetadata = {}
+export let PageData = {}
 
 
 /* Fonction permettant de demander et de récupérer des éléments depuis l'API. */
@@ -6,7 +6,7 @@ export async function loadPageData(triggerEvent) {
     try {        
         const works = await fetch('http://localhost:5678/api/works')
         const worksData = await works.json()
-        PageMetadata.works = worksData
+        PageData.works = worksData
 
     } catch(error) {
         console.error('Erreur lors de la récupération des travaux :', error);
@@ -15,7 +15,7 @@ export async function loadPageData(triggerEvent) {
     try {
         const categories = await fetch('http://localhost:5678/api/categories')
         const categoriesData = await categories.json()
-        PageMetadata.categories = categoriesData
+        PageData.categories = categoriesData
 
     } catch(error) {
         console.error('Erreur lors de la récupération des catégories :', error);
@@ -39,7 +39,7 @@ function projectContainerInitialization() {
     gallery.innerHTML = "";
 
     /* Création et intégration des projets dans le conteneur. */
-    PageMetadata.works.forEach((element) => {
+    PageData.works.forEach((element) => {
         let project = createProjetElement(element)
         gallery.appendChild(project)
     });
@@ -51,7 +51,7 @@ function loadProjectsFromCategory(categoryID) {
     gallery.innerHTML = "";
 
     /* Création et intégration des projets ayant un certain "categoryID" dans le conteneur de projets. */
-    let filteredWorks = PageMetadata.works.filter(element => element.categoryId === categoryID)
+    let filteredWorks = PageData.works.filter(element => element.categoryId === categoryID)
     filteredWorks.forEach((element) => {
         let project = createProjetElement(element)
         gallery.appendChild(project)
@@ -89,7 +89,7 @@ function projectFiltersInitialization() {
     filters.appendChild(filter)
 
     /* Création des différents boutons de filtres de catégories. */
-    PageMetadata.categories.forEach((element) => {
+    PageData.categories.forEach((element) => {
         let filter = createFilterElement(element.name, loadProjectsFromCategory, element.id)
         filters.appendChild(filter)
     });  
