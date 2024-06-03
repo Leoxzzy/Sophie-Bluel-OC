@@ -264,6 +264,10 @@ section {
 	margin: 50px 0
 }
 
+#editionMode-notification {
+    display: none;
+}
+
 
 /*------------------------------ INTRODUCTION ------------------------------*/
 #introduction {
@@ -597,26 +601,44 @@ LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - LOGIN - 
 	gap: 37px;
 	margin-top: 150px;
 }
-.login-inputs {
+#loginForm {
 	display: flex;
 	flex-direction: column;
 	gap: 30px;
 }
 
-.login-userInteractions {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 28px;
+.entryWithName.login label {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16.42px;
+	margin-bottom: 10px;
 }
-.login-userInteractions button {
+.entryWithName.login input {
+	width: 420px;
+	height: 51px;
+	border: none;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+#loginForm > input {
+	border: none;
 	padding: 10px 39px 10px 39px;
 }
-.login-userInteractions a {
+#loginForm > input:hover {
+	cursor: pointer;
+	color: white;
+	background-color: rgba(14, 47, 40, 1);
+	transition: 150ms ease-in;
+}
+
+#loginForm > a {
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 16.42px;
 	color: rgba(61, 61, 61, 1);
+
+	margin-top: -20px;
+	text-align: center;
 }
 
 #loginFooter {
