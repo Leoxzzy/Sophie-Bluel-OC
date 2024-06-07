@@ -73,6 +73,8 @@ window.addEventListener('pageDataLoaded', () => {
     })
     modalWindow.addPictureForm.addEventListener('submit', (event) => {
         event.preventDefault()
+
+        if (typeof addImageMetadata.image !== 'object') { return notification('Vous devez sélectionner une image pour valider !', 'error') } 
         addPictureToProjets(addImageMetadata)
     })
 
