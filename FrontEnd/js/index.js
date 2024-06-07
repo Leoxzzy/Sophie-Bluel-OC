@@ -40,8 +40,7 @@ function projectContainerInitialization() {
 
     /* Création et intégration des projets dans le conteneur. */
     PageData.works.forEach((element) => {
-        let project = createProjetElement(element)
-        gallery.appendChild(project)
+        gallery.appendChild(createProjetElement(element))
     });
 }
 
@@ -51,12 +50,11 @@ function loadProjectsFromCategory(categoryID) {
     gallery.innerHTML = "";
 
     /* Création et intégration des projets ayant un certain "categoryID" dans le conteneur de projets. */
-    let filteredWorks = PageData.works.filter(element => element.categoryId === categoryID)
-    filteredWorks.forEach((element) => {
-        let project = createProjetElement(element)
-        gallery.appendChild(project)
+    PageData.works.filter(element => element.categoryId === categoryID).forEach((element) => {
+        gallery.appendChild(createProjetElement(element))
     })
 }
+
 
 /* Fonction permettant la création d'un élément de projet. */
 function createProjetElement(data) {
